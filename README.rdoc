@@ -46,6 +46,7 @@ Currently, Aqua uses CouchDB for its storage. Make sure you have CouchDB install
     
   end
 
+  require 'date'
   user = User.new( 
     :username => 'kane', 
     :name =>{:first => 'Kane', :last => 'Baccigalupi'},

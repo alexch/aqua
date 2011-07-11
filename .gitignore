@@ -6,3 +6,4 @@ pkg
 .yardoc
 doc/*
 aqua-*.gem
+Gemfile.lock
