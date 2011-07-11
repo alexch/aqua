@@ -49,7 +49,7 @@ Currently, Aqua uses CouchDB for its storage. Make sure you have CouchDB install
   user = User.new( 
     :username => 'kane', 
     :name =>{:first => 'Kane', :last => 'Baccigalupi'},
-    :dob => Date.parse( '12/23/1969' ), 
+    :dob => Date.parse('1969-12-23'),
     :password => 'ubber_secret!'
   ) 
 

@@ -188,7 +188,9 @@ module Aqua
         #
         # @api private
         def _commit_externals 
-          _translator.externals.each do |obj, path|
+          x = _translator.externals
+          x.each do |obj, path|
+            next if obj.eql? self  # without this, got an infinite loop
             if obj.commit
               _update_external_id( path, obj.id )
             else

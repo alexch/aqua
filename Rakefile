@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'rake'
-require 'yard'
+# require 'yard'
 
 begin
   require 'jeweler'
@@ -17,14 +17,16 @@ rescue LoadError
   puts "Jeweler (or a dependency) not available. Install it with: sudo gem install jeweler"
 end
 
-require 'spec/rake/spectask'
-Spec::Rake::SpecTask.new(:spec) do |spec|
-  spec.libs << 'lib' << 'spec'
-  spec.spec_files = FileList['spec/**/*_spec.rb']
+require 'rspec/core/rake_task'
+
+RSpec::Core::RakeTask.new(:spec) do |spec|
+  spec.ruby_opts = "-I./lib"
+  # spec.libs << 'lib' << 'spec'
+  spec.pattern = 'spec/**/*_spec.rb'
 end
 
-Spec::Rake::SpecTask.new(:rcov) do |spec|
-  spec.libs << 'lib' << 'spec'
+RSpec::Core::RakeTask.new(:rcov) do |spec|
+  spec.ruby_opts = "-I./lib"
   spec.pattern = 'spec/**/*_spec.rb'
   spec.rcov = true
 end
@@ -74,6 +76,7 @@ task :stats do
   CodeStatistics.new(*AR_DIRECTORIES).to_s if File.exists?( File.dirname(__FILE__) + '/utils/rails/activerecord')
 end
 
+require 'yard'
 # YARDing up some documentation
 # YARD::Tags::Library.define_tag("API", :api) 
 # YARD::Tags::Library.defind_tag("Inteface Specifications", :interface_level)

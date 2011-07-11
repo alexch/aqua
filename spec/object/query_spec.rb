@@ -6,7 +6,7 @@ describe Aqua::Query do
     User::Storage.database = nil
     User::Storage.database.delete_all
     @time = Time.now
-    @date = Date.parse('12/23/1969')
+    @date = Date.parse('1969/12/23')
     @log = Log.new( :message => "Hello World! This is a log entry", :created_at => Time.now )
     @user = User.new(
       :username => 'kane',
