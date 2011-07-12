@@ -8,6 +8,7 @@ group :test do
 end
 
 group :development do
+  gem "json"
   gem "rake"
   gem "yard"
   gem "jeweler"

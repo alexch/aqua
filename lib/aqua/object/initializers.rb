@@ -103,6 +103,7 @@ class Symbol
   end 
 end  
 
+require 'date'  # for Date.parse
 class Date
   transient_attr :sg, :of, :ajd
   
